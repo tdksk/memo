@@ -48,13 +48,21 @@ window.onresize = onResize;
 /** Save **/
 function onSaveFile(editor) {
   var contents = editor.session.getValue();
+  var $header = $('#header');
 
-  $.post('./write.php',
-         {contents: contents},
-         function (data) {
-           // $('#sidebar ul').html(data);
-           // alert(data);
-         });
+  $.ajax({
+    type: 'post',
+    url: './write.php',
+    data: {
+      contents: contents
+    },
+    success: function () {
+      $header.removeClass('error');
+    },
+    error: function () {
+      $header.addClass('error');
+    }
+  });
 
   showTasks(editor);
 }

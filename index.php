@@ -60,6 +60,7 @@ $d->modify('-1 day');
       <form method="post">
         <input type="text" class="searchbox" placeholder="今までのノートから検索">
       </form>
+      <p class="save-failed">保存に失敗しました。通信状況を確認し、再度文字入力してください。</p>
     </div>
     <div id="sidebar">
       <ul>
