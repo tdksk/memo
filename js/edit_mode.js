@@ -1,4 +1,4 @@
-window.onload = function () {
+$(function () {
   /** Initialize **/
   var editor = ace.edit('editor');
   editor.setHighlightActiveLine(false);
@@ -23,7 +23,29 @@ window.onload = function () {
   editor.session.on('change', function () {
     onSaveFile(editor);
   });
-};
+
+  /** Save **/
+  function onSaveFile(editor) {
+    var contents = editor.session.getValue();
+    var $header = $('#header');
+
+    $.ajax({
+      type: 'post',
+      url: './write.php',
+      data: {
+        contents: contents
+      },
+      success: function () {
+        $header.removeClass('error');
+      },
+      error: function () {
+        $header.addClass('error');
+      }
+    });
+
+    showTasks(editor);
+  }
+});
 
 /** Theme **/
 define('ace/theme/note', function (require, exports, module) {

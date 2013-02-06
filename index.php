@@ -68,7 +68,7 @@ $d->modify('-1 day');
     </div>
     <div id="editor"><?=$contents?></div>
     <script src="src/ace.js"></script>
-    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="js/scripts.js"></script>
     <? if ($date == date('Y-m-d (D)')): ?>
     <script src="js/edit_mode.js"></script>

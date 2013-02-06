@@ -1,4 +1,4 @@
-window.onload = function () {
+$(function () {
   var editor = ace.edit('editor');
   editor.setHighlightActiveLine(false);
   editor.setShowPrintMargin(false);
@@ -9,17 +9,12 @@ window.onload = function () {
 
   /** Commands **/
   editor.commands.removeCommands(['gotoline', 'replace']);
-  editor.commands.addCommand({
-    name: "save",
-    bindKey: {win: "Ctrl-S", mac: "Command-S"},
-    exec: function(editor){onSaveFile(editor);}
-  });
 
   editor.session.setMode('ace/mode/note');
   editor.setTheme('ace/theme/note_view');
 
   editor.setReadOnly(true);
-};
+});
 
 /** Theme **/
 define('ace/theme/note_view', function (require, exports, module) {
