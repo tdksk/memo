@@ -18,7 +18,7 @@ $d->modify('-1 day');
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css" media="all">
-    <title>Note</title>
+    <title>Mem0</title>
   </head>
   <body>
     <div id="header">
